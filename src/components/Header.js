@@ -3,12 +3,12 @@ import React from 'react'
 // Component imports
 import SBLogo from './SBLogo'
 
-const Banner = () => {
+const Header = () => {
    return (
-      <div className='banner'>
+      <header className='header'>
          <SBLogo />
-      </div>
+      </header>
    )
 }
 
-export default Banner
+export default Header

@@ -1,12 +1,14 @@
 import React from 'react'
 
 // Component imports
-import Banner from './Banner'
+import Header from './Header'
+import Main from './Main'
 
 const App = () => {
    return (
       <div className='container'>
-         <Banner />
+         <Header />
+         <Main />
       </div>
    )
 }
