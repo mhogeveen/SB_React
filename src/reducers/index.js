@@ -1,6 +1,8 @@
-import {} from '../actions/types'
 import { combineReducers } from 'redux'
 
+// Reducer imports
+import indexReducer from './indexReducer'
+
 export default combineReducers({
-   state: () => [],
+   index: indexReducer,
 })
