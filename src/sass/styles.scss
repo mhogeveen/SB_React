@@ -1,0 +1,20 @@
+// Import utils
+@import './utils/variables';
+
+// Import components
+
+// General styles
+* {
+   margin: 0;
+   padding: 0;
+   font-size: 16px;
+}
+
+body {
+   display: flex;
+   justify-content: center;
+}
+
+.container {
+   max-width: 1024px;
+}
