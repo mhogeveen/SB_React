@@ -8,8 +8,10 @@ import reducers from './reducers'
 // Stylesheet import
 import './sass/styles.scss'
 
+// Component imports
 import App from './components/App'
 
+// Create Redux store with middleware
 const store = createStore(reducers, applyMiddleware(thunk))
 
 ReactDOM.render(

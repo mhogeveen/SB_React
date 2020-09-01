@@ -1,0 +1,14 @@
+.banner {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 250px;
+   background: url('../../assets/sb_banner.webp') rgba(0, 0, 0, 0.4);
+   background-size: cover;
+   background-blend-mode: multiply;
+
+   .sb-logo {
+      width: 30%;
+   }
+}
