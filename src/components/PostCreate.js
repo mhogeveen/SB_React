@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getCategories, updateTitle, updateCategory, updateMessage } from '../actions'
+import { getCategories, updateTitle, updateCategory, updateMessage, submitForm } from '../actions'
 
 const PostCreate = ({
    getCategories,
@@ -8,6 +8,7 @@ const PostCreate = ({
    updateTitle,
    updateCategory,
    updateMessage,
+   submitForm,
    form,
 }) => {
    // Load categories after component renders
@@ -27,8 +28,13 @@ const PostCreate = ({
       updateMessage(e.target.value)
    }
 
+   const handleSubmitForm = () => {
+      submitForm(form)
+   }
+
    return (
       <div className='post-create'>
+         {/* Form element for the title */}
          <div className='form__item item--title'>
             <label>Berichtnaam</label>
             <input
@@ -40,9 +46,16 @@ const PostCreate = ({
             />
          </div>
 
+         {/* Form element for selecting a category */}
          <div className='form__item item--category'>
             <label>Categorie</label>
-            <select type='select' name='categorie' required onChange={handleCategoryChange}>
+            <select
+               type='select'
+               name='categorie'
+               required
+               onChange={handleCategoryChange}
+               value={form.category_id}
+            >
                <option value='' disabled selected>
                   Geen categorie
                </option>
@@ -54,12 +67,15 @@ const PostCreate = ({
             </select>
          </div>
 
+         {/* Form element for the message */}
          <div className='form__item item--message'>
             <label>Bericht</label>
-            <textarea name='bericht' value={form.message} onChange={handleMessageChange} />
+            <textarea name='bericht' value={form.content} onChange={handleMessageChange} />
          </div>
 
-         <button className='btn'>Bericht aanmaken</button>
+         <button className='btn' onClick={handleSubmitForm}>
+            Bericht aanmaken
+         </button>
       </div>
    )
 }
@@ -73,4 +89,5 @@ export default connect(mapStateToProps, {
    updateTitle,
    updateCategory,
    updateMessage,
+   submitForm,
 })(PostCreate)

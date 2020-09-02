@@ -61,4 +61,15 @@ export const updateMessage = (payload) => {
    }
 }
 
-export const submitForm = () => {}
+export const submitForm = (form) => async (dispatch) => {
+   try {
+      const response = await postsAPI.post('posts', form)
+      console.log(response)
+
+      dispatch({
+         type: SUBMIT_FORM,
+      })
+   } catch (error) {
+      console.log(error)
+   }
+}

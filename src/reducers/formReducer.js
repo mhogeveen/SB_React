@@ -3,7 +3,7 @@ import { UPDATE_TITLE, UPDATE_CATEGORY, UPDATE_MESSAGE, SUBMIT_FORM } from '../a
 const initialState = {
    title: '',
    content: '',
-   category_id: 0,
+   category_id: '',
 }
 
 export default (state = initialState, action) => {
@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       case UPDATE_MESSAGE:
          return { ...state, content: action.payload }
       case SUBMIT_FORM:
-         return {}
+         return { ...initialState }
       default:
          return state
    }
