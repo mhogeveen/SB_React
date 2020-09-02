@@ -40,3 +40,40 @@ body {
    margin: 0 auto;
    cursor: pointer;
 }
+
+.loader {
+   $loader-size: 2rem;
+   $loader-size-half: calc(#{$loader-size} / 2);
+   position: relative;
+   width: 100%;
+   padding-bottom: 100%;
+
+   &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - #{$loader-size-half});
+      left: calc(50% - #{$loader-size-half});
+      width: $loader-size;
+      height: $loader-size;
+      border-radius: 50%;
+      background-color: $clr-highlight;
+      animation: 2s loader infinite;
+   }
+}
+
+@keyframes loader {
+   0% {
+      transform: scale(0);
+      opacity: 0;
+   }
+
+   50% {
+      transform: scale(1);
+      opacity: 0.8;
+   }
+
+   100% {
+      transform: scale(0);
+      opacity: 0;
+   }
+}

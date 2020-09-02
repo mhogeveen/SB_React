@@ -1,20 +1,33 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { incrementIndex } from '../actions'
+import { incrementIndex, getPosts } from '../actions'
 
 // Component imports
 import PostCard from './PostCard'
 
-const PostGrid = ({ index, incrementIndex }) => {
-   // useEffect({})
+const PostGrid = ({ index, posts, incrementIndex, getPosts }) => {
+   useEffect(() => {
+      getPosts(1)
+      incrementIndex()
+   }, [getPosts, incrementIndex])
+
+   const handleLoadMore = () => {
+      getPosts(index)
+      incrementIndex()
+   }
+
+   const renderPosts = () => {
+      if (posts.length === 0) {
+         return <div className='loader'></div>
+      } else {
+         return posts.map((post) => <PostCard post={post} key={post.id} />)
+      }
+   }
 
    return (
       <div className='post-grid'>
-         <PostCard />
-         <PostCard />
-         <PostCard />
-         <PostCard />
-         <button className='btn' onClick={incrementIndex}>
+         {renderPosts()}
+         <button className='btn' onClick={handleLoadMore}>
             Meer laden
          </button>
       </div>
@@ -22,7 +35,7 @@ const PostGrid = ({ index, incrementIndex }) => {
 }
 
 const mapStateToProps = (state) => {
-   return { index: state.index }
+   return { index: state.index, posts: state.posts }
 }
 
-export default connect(mapStateToProps, { incrementIndex })(PostGrid)
+export default connect(mapStateToProps, { incrementIndex, getPosts })(PostGrid)

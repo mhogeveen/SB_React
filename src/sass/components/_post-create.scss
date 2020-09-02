@@ -1,5 +1,6 @@
 .post-create {
-   grid-column: 1 / 7;
+   grid-column: 1;
    background-color: $clr-light;
    padding: 2rem;
+   height: fit-content;
 }
