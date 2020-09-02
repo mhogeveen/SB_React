@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getCategories } from '../actions'
 
-const PostCreate = () => {
+const PostCreate = ({ getCategories, categories }) => {
+   useEffect(() => {
+      getCategories()
+   }, [getCategories])
+
    return (
       <div className='post-create'>
          <div className='form__item item--title'>
@@ -13,9 +19,11 @@ const PostCreate = () => {
                <option value='' disabled selected>
                   Geen categorie
                </option>
-               <option>Categorie 1</option>
-               <option>Categorie 2</option>
-               <option>Categorie 3</option>
+               {categories.map((category) => (
+                  <option key={category.id} value={category.name}>
+                     {category.name}
+                  </option>
+               ))}
             </select>
          </div>
          <div className='form__item item--message'>
@@ -27,4 +35,8 @@ const PostCreate = () => {
    )
 }
 
-export default PostCreate
+const mapStateToProps = (state) => {
+   return { categories: state.categories }
+}
+
+export default connect(mapStateToProps, { getCategories })(PostCreate)
