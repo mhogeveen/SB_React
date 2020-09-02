@@ -1,4 +1,4 @@
-import { GET_POSTS, INCREMENT_INDEX } from './types'
+import { GET_POSTS, INCREMENT_PAGE } from './types'
 import postsAPI from '../api/postsAPI'
 
 export const getPosts = (index) => async (dispatch) => {
@@ -11,8 +11,8 @@ export const getPosts = (index) => async (dispatch) => {
    })
 }
 
-export const incrementIndex = () => {
+export const incrementPage = () => {
    return {
-      type: INCREMENT_INDEX,
+      type: INCREMENT_PAGE,
    }
 }

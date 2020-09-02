@@ -1,8 +1,8 @@
-import { INCREMENT_INDEX } from '../actions/types'
+import { INCREMENT_PAGE } from '../actions/types'
 
 export default (state = 1, action) => {
    switch (action.type) {
-      case INCREMENT_INDEX:
+      case INCREMENT_PAGE:
          return (state += 1)
       default:
          return state

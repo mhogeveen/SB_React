@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
 // Reducer imports
-import indexReducer from './indexReducer'
+import pageReducer from './pageReducer'
 import postsReducer from './postsReducer'
 
 export default combineReducers({
-   index: indexReducer,
+   page: pageReducer,
    posts: postsReducer,
 })
