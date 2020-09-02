@@ -1,6 +1,65 @@
 .post-create {
    grid-column: 1;
+   display: flex;
+   flex-direction: column;
    background-color: $clr-light;
    padding: 2rem;
-   height: fit-content;
+}
+
+.form__item {
+   display: flex;
+   flex-direction: column;
+   padding: 0 0 2rem 0;
+
+   & label {
+      color: $clr-gray200;
+      padding: 0 0 0.66rem 0;
+   }
+
+   & input,
+   & select,
+   & textarea {
+      background-color: $clr-bg;
+      border: none;
+   }
+
+   & *::placeholder {
+      color: $clr-gray400;
+      font-style: italic;
+      font-weight: 300;
+   }
+}
+
+.item--title input {
+   padding: 1rem 1.5rem;
+}
+
+.item--category {
+   position: relative;
+
+   & select {
+      padding: 1rem 1.5rem;
+      color: $clr-gray400;
+      font-style: italic;
+      font-weight: 300;
+      appearance: none;
+   }
+
+   &::before {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      content: '>';
+      position: absolute;
+      bottom: 2rem;
+      right: 0;
+      height: 42px;
+      width: 30px;
+      transform: rotate(90deg) scale(0.7, 1.2);
+      font-size: 1.5rem;
+      pointer-events: none;
+   }
+}
+
+.item--message textarea {
 }
