@@ -1,6 +1,11 @@
 .post-card {
    width: calc(50% - 12px);
    box-shadow: $shadow;
+   margin: 0 0 2rem 0;
+
+   &:nth-child(odd) {
+      margin: 0 2rem 2rem 0;
+   }
 
    &__header {
       position: relative;
