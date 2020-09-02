@@ -3,15 +3,20 @@ import React from 'react'
 const PostCard = ({ post }) => {
    const { img_url, created_at, category, title, content } = post
 
+   const refactorDate = (string) => {
+      const y = string.slice(0, 4)
+      const m = string.slice(5, 7)
+      const d = string.slice(8, 10)
+      return d + '-' + m + '-' + y
+   }
+
    return (
       <article className='post-card'>
          <div
             className='post-card__header'
             style={{ background: `url(${img_url}) rgba(0,0,0,0.4)` }}
          >
-            <span className='header__meta meta--date'>
-               {new Date(created_at).toLocaleDateString()}
-            </span>
+            <span className='header__meta meta--date'>{refactorDate(created_at)}</span>
             <span className='header__meta meta--category'>{category ? category.name : ''}</span>
          </div>
          <div className='post-card__content'>

@@ -9,8 +9,10 @@ const PostCreate = () => {
          </div>
          <div className='form__item item--category'>
             <label>Categorie</label>
-            <select type='select' name='categorie' defaultValue='Geen categorie'>
-               <option value=''>Geen categorie</option>
+            <select type='select' name='categorie' required>
+               <option value='' disabled selected>
+                  Geen categorie
+               </option>
                <option>Categorie 1</option>
                <option>Categorie 2</option>
                <option>Categorie 3</option>
