@@ -1,4 +1,13 @@
-import { GET_POSTS, INCREMENT_PAGE, INCREMENT_CLICKS, GET_CATEGORIES } from './types'
+import {
+   GET_POSTS,
+   INCREMENT_PAGE,
+   INCREMENT_CLICKS,
+   GET_CATEGORIES,
+   UPDATE_TITLE,
+   UPDATE_CATEGORY,
+   UPDATE_MESSAGE,
+   SUBMIT_FORM,
+} from './types'
 import postsAPI from '../api/postsAPI'
 
 export const getPosts = (index) => async (dispatch) => {
@@ -30,3 +39,26 @@ export const incrementClicks = () => {
       type: INCREMENT_CLICKS,
    }
 }
+
+export const updateTitle = (payload) => {
+   return {
+      type: UPDATE_TITLE,
+      payload,
+   }
+}
+
+export const updateCategory = (payload) => {
+   return {
+      type: UPDATE_CATEGORY,
+      payload,
+   }
+}
+
+export const updateMessage = (payload) => {
+   return {
+      type: UPDATE_MESSAGE,
+      payload,
+   }
+}
+
+export const submitForm = () => {}

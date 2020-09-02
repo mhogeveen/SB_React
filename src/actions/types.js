@@ -1,3 +1,8 @@
+export const UPDATE_TITLE = 'UPDATE_TITLE'
+export const UPDATE_CATEGORY = 'UPDATE_CATEGORY'
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'
+export const SUBMIT_FORM = 'SUBMIT_FORM'
+
 export const GET_POSTS = 'GET_POSTS'
 
 export const GET_CATEGORIES = 'GET_CATEGORIES'
