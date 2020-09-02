@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { incrementPage, getPosts } from '../actions'
+import { incrementPage, incrementClicks, getPosts } from '../actions'
 
 // Component imports
 import PostCard from './PostCard'
 
-const PostGrid = ({ page, posts, incrementPage, getPosts }) => {
-   // Component state to track how often 'meer laden'
-   // button was clicked
-   const [clicked, setClicked] = useState(0)
-
+const PostGrid = ({ page, clicks, posts, incrementPage, incrementClicks, getPosts }) => {
    // Load first page of posts after component renders
    useEffect(() => {
       getPosts(1)
@@ -18,7 +14,7 @@ const PostGrid = ({ page, posts, incrementPage, getPosts }) => {
    // Variables to track the amount of posts loaded,
    // and the amount of posts to show
    const postsLoaded = page * 10
-   const postsShown = 4 + clicked * 4
+   const postsShown = 4 + clicks * 4
 
    // Logic to run after clicking 'meer laden' button
    const handleLoadMore = () => {
@@ -27,7 +23,7 @@ const PostGrid = ({ page, posts, incrementPage, getPosts }) => {
          incrementPage()
       }
 
-      setClicked(clicked + 1)
+      incrementClicks()
    }
 
    // If no posts are available in state show loader
@@ -52,7 +48,7 @@ const PostGrid = ({ page, posts, incrementPage, getPosts }) => {
 }
 
 const mapStateToProps = (state) => {
-   return { page: state.page, posts: state.posts }
+   return { page: state.page, clicks: state.clicks, posts: state.posts }
 }
 
-export default connect(mapStateToProps, { incrementPage, getPosts })(PostGrid)
+export default connect(mapStateToProps, { incrementPage, incrementClicks, getPosts })(PostGrid)

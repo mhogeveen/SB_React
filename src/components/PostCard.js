@@ -1,13 +1,13 @@
 import React from 'react'
 
 const PostCard = ({ post }) => {
-   const { created_at, category, title, content } = post
+   const { img_url, created_at, category, title, content } = post
 
    return (
       <article className='post-card'>
          <div
             className='post-card__header'
-            style={{ background: `url('https://picsum.photos/200/300?random') rgba(0,0,0,0.4)` }}
+            style={{ background: `url(${img_url}) rgba(0,0,0,0.4)` }}
          >
             <span className='header__meta meta--date'>
                {new Date(created_at).toLocaleDateString()}
