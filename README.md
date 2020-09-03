@@ -10,9 +10,3 @@ Dit is een sollicitatie opdracht.
 -  redux-thunk
 -  axios
 -  node-sass
-
-## Build preview
-
-De build preview is te vinden op:
-
-[Build preview](https://mhogeveen.github.io/sb_react)
