@@ -14,11 +14,20 @@ Dit is een sollicitatie opdracht.
 ## Installatie
 
 Clone de repo naar je locale apparaat:
-`$ git clone <repo-url>`
-`$ cd <repo-naam>`
+
+```
+$ git clone <repo-url>
+$ cd <repo-naam>
+```
 
 Installeer de dependencies van het project:
-`$ npm install`
+
+```
+$ npm install
+```
 
 Voer developer build uit:
-`$ npm run start`
+
+```
+$ npm run start
+```
