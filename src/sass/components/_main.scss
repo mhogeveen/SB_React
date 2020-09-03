@@ -3,4 +3,17 @@
    grid-template-columns: repeat(2, 1fr);
    gap: 20px;
    padding: 40px;
+
+   @media (max-width: $bp-l) {
+      grid-template-columns: 2fr 3fr;
+   }
+
+   @media (max-width: $bp-m) {
+      display: flex;
+      flex-direction: column;
+   }
+
+   @media (max-width: $bp-xxs) {
+      padding: 20px;
+   }
 }

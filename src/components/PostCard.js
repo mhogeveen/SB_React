@@ -12,10 +12,7 @@ const PostCard = ({ post }) => {
 
    return (
       <article className='post-card'>
-         <div
-            className='post-card__header'
-            style={{ background: `url(${img_url}) rgba(0,0,0,0.4)` }}
-         >
+         <div className='post-card__header' style={{ backgroundImage: `url(${img_url})` }}>
             <span className='header__meta meta--date'>{refactorDate(created_at)}</span>
             <span className='header__meta meta--category'>{category ? category.name : ''}</span>
          </div>

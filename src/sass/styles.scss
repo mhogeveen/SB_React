@@ -28,6 +28,10 @@ body {
 .container {
    width: 1024px;
    background-color: $clr-bg;
+
+   @media (max-width: $bp-l) {
+      width: 100%;
+   }
 }
 
 .btn {
