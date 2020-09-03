@@ -29,7 +29,26 @@ const PostCreate = ({
    }
 
    const handleSubmitForm = () => {
-      submitForm(form)
+      // Construct array of DOM nodes and their names
+      const title = [document.querySelector('.item--title input'), 'title']
+      const category_id = [document.querySelector('.item--category select'), 'category_id']
+      const content = [document.querySelector('.item--message textarea'), 'content']
+      const inputs = [title, category_id, content]
+
+      // Validation for each input
+      inputs.forEach((input) => {
+         if (form[input[1]] === '') {
+            input[0].classList.add('invalid')
+            setTimeout(() => {
+               input[0].classList.remove('invalid')
+            }, 3000)
+         }
+      })
+
+      // If all inputs have values submit form
+      if (form.title.length !== 0 && form.category_id.length !== 0 && form.content.length !== 0) {
+         submitForm(form)
+      }
    }
 
    return (

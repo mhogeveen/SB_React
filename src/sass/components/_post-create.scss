@@ -79,6 +79,10 @@
    }
 }
 
+.form__item .invalid {
+   box-shadow: 0 0 0 2px $clr-highlight;
+}
+
 @media (max-width: $bp-m) {
    .item--title {
       width: calc(50% - 1rem);
